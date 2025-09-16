@@ -26,9 +26,9 @@ export class User {
 	}
 
 	// Создание заказа
-	createOrder(title) {
+	createOrder(title, error) {
+		if (!title) return error;
 		let order = new Order(this.id, title);
-		console.log("created", order);
 		this.orders[order.id] = order;
 		return order;
 	}

@@ -47,8 +47,9 @@ export class Order {
 	getTitle() {
 		return this.title;
 	}
-	getHistory() {
-		console.table(this.history);
+	getHistory(title, error) {
+		if (!title) return error;
+		return this.history;
 	}
 
 	check(func, action) {
@@ -62,27 +63,33 @@ export class Order {
 		});
 	}
 
-	pay() {
+	pay(title, error) {
 		// — оплата заказа (снимает деньги с баланса пользователя)
+		if (!title) return error;
 		this.check(this.state.pay, "pay");
 	}
-	ship() {
+	ship(title, error) {
 		// — отправка заказа
+		if (!title) return error;
 		this.check(this.state.ship, "ship");
 	}
-	deliver() {
+	deliver(title, error) {
 		// — доставка заказа
+		if (!title) return error;
 		this.check(this.state.deliver, "deliver");
 	}
-	cancel() {
+	cancel(title, error) {
 		// — отмена заказа
+		if (!title) return error;
 		this.check(this.state.cancel, "cancel");
 	}
-	return() {
+	return(title, error) {
+		if (!title) return error;
 		// — возврат товара (опционально)
 		this.check(this.state.return, "return");
 	}
-	refund() {
+	refund(title, error) {
+		if (!title) return error;
 		// — возврат денег клиенту (опционально)
 		this.check(this.state.refund, "refund");
 	}

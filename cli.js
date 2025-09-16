@@ -30,6 +30,14 @@ exit — завершить программу
 
 const errorTitle = `Ошибка! Введите название заказа.`;
 
+// function checkTitle() {
+// 	if (!title) {
+// 		console.log(errorTitle);
+// 		return false;
+// 	}
+// 	return true;
+// }
+
 function createCLI(user) {
 	return () => {
 		while (command != "exit") {
@@ -42,60 +50,28 @@ function createCLI(user) {
 
 			switch (splCommand[0]) {
 				case "create": // create — Создать заказ
-					if (!title) {
-						console.log(errorTitle);
-						break;
-					}
-					user.createOrder(title);
+					console.log(user.createOrder(title, errorTitle));
 					break;
 				case "pay": // pay — Оплатить заказ
-					if (!title) {
-						console.log(errorTitle);
-						break;
-					}
-					order.pay();
+					order.pay(title, errorTitle);
 					break;
 				case "ship": // ship — Отправить заказ
-					if (!title) {
-						console.log(errorTitle);
-						break;
-					}
-					order.ship();
+					order.ship(title, errorTitle);
 					break;
 				case "deliver": // deliver — Доставить заказ
-					if (!title) {
-						console.log(errorTitle);
-						break;
-					}
-					order.deliver();
+					order.deliver(title, errorTitle);
 					break;
 				case "cancel": // cancel — Отменить заказ
-					if (!title) {
-						console.log(errorTitle);
-						break;
-					}
-					order.cancel();
+					order.cancel(title, errorTitle);
 					break;
 				case "return": // return — Возврат товара
-					if (!title) {
-						console.log(errorTitle);
-						break;
-					}
-					order.return();
+					order.return(title, errorTitle);
 					break;
 				case "refund": // refund — возврат средств
-					if (!title) {
-						console.log(errorTitle);
-						break;
-					}
-					order.refund();
+					order.refund(title, errorTitle);
 					break;
 				case "history": // history — Посмотреть историю заказов
-					if (!title) {
-						console.log(errorTitle);
-						break;
-					}
-					order.getHistory();
+					order.getHistory(title, errorTitle);
 					break;
 				case "show":
 					user.showOrders();

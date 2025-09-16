@@ -10,6 +10,4 @@ cli();
 
 // let order1 = user1.createOrder("egg");
 // order1.pay();
-// order1.ship();
-// order1.deliver();
-// console.log(order1.getHistory());
+// user1.showOrders();
